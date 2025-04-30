@@ -1,12 +1,21 @@
+import sys
 from fractions import Fraction
 
-with open('circle.txt', 'r') as file:
+
+if len(sys.argv) != 3:
+    print("Использование: python task2.py <circle.txt> <dot.txt>")
+    sys.exit(1)
+
+circle_file = sys.argv[1]
+dot_file = sys.argv[2]
+
+with open(circle_file, 'r') as file:
     lines = file.readlines()
 
 x, y = map(Fraction, lines[0].strip().split())
 r = Fraction(lines[1].strip())
 
-with open('dot.txt', 'r') as file:
+with open(dot_file, 'r') as file:
     lines = file.readlines()
 
 dots = [list(map(Fraction, lin.strip().split())) for lin in lines]

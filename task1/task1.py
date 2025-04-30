@@ -1,6 +1,15 @@
 # n = int(input("Введите n: "))
 # m = int(input("Введите m: "))
-n, m = map(int, input().split())
+
+import sys
+
+if len(sys.argv) != 3:
+    print("Использование: python task1.py <n> <m>")
+    sys.exit(1)
+
+n = int(sys.argv[1])
+m = int(sys.argv[2])
+# n, m = map(int, input().split())
 
 mass = list(range(1, n + 1))
 res = []
